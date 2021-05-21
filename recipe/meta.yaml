@@ -43,6 +43,7 @@ about:
   license: BSD-2-clause
   license_file: LICENSE
   summary: Pygments is a generic syntax highlighter suitable for use in code hosting, forums, wikis or other applications that need to prettify source code.
+  dev_url: https://github.com/pygments/pygments
 
 extra:
   recipe-maintainers:
