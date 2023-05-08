@@ -45,7 +45,7 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Pygments is a generic syntax highlighter suitable for use in code hosting, forums, wikis or other applications that need to prettify source code.
-  Description: |
+  description: |
     This is the source of Pygments. It is
     a generic syntax highlighter written in Python
     that supports over 500 languages and text formats,
