@@ -10,7 +10,7 @@ source:
   sha256: 61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - pygmentize = pygments.cmdline:main
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation
