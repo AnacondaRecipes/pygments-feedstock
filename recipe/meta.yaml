@@ -1,20 +1,25 @@
 {% set name = "pygments" %}
-{% set version = "2.20.0" %}
+{% set version = "2.21.0" %}
+{% set ignore_tests = " --ignore=tests/contrast/test_contrasts.py" %}
+{% set deselect_tests = " --deselect=tests/test_basic_api.py::test_lexer_classes" %}
 
+# E   ModuleNotFoundError: No module named 'wcag_contrast_ratio' -> https://pypi.org/project/wcag-contrast-ratio/ (not in the main channel)
+# E   AssertionError: Example file tests/examplefiles/sqlite3/sqlite3.sqlite3-console not found
+# File is not in the site-packages directory:
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f
+  sha256: 610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation
   entry_points:
     - pygmentize = pygments.cmdline:main
-  skip: True  # [py<39]
+  skip: true  # [py<39]
 
 requirements:
   host:
@@ -27,11 +32,6 @@ requirements:
     # windows-terminal
     - colorama >=0.4.6  # [win]
 
-# E   ModuleNotFoundError: No module named 'wcag_contrast_ratio' -> https://pypi.org/project/wcag-contrast-ratio/ (not in the main channel)
-{% set ignore_tests = " --ignore=tests/contrast/test_contrasts.py" %}
-# E   AssertionError: Example file tests/examplefiles/sqlite3/sqlite3.sqlite3-console not found
-# File is not in the site-packages directory:
-{% set deselect_tests = " --deselect=tests/test_basic_api.py::test_lexer_classes" %}
 test:
   source_files:
     - tests
